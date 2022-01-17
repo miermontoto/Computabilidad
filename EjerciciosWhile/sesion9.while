@@ -1,0 +1,114 @@
+# Ejercicio 1
+# Funciones semánticas unarias y binarias
+
+# Si x es impar, la función está indefinida.
+# Para paridad 1, la función está indefinida.
+P1(x) = Indef.
+P2(x, y) = {
+      (x div 2) div y si x % 2 == 0 && y >= 1
+      Indef.          si x % 2 != 0 || y == 0
+}
+
+Secuencia computación P2(2, 2):
+â0 = {2, 2, 0, 0, 0}
+A1 = X1 != X3
+â1 = {2, 2, 0, 0, 0}
+A2 = X1:=pred(X1)
+â2 = {1, 2, 0, 0, 0}
+A3 = X3:=succ(X3)
+â3 = {1, 2, 1, 0, 0}
+A4 = X1 != X3
+â4 = {1, 2, 1, 0, 0}
+A5 = X1:=succ(X3)
+â5 = {2, 2, 1, 0, 0}
+A6 = X1 != X4
+â6 = {2, 2, 1, 0, 0}
+A7 = X1:=X1∸X2
+â7 = {0, 2, 1, 0, 0}
+A8 = X5:=succ(X5)
+â8 = {0, 2, 1, 0, 1}
+A9 = X1 != X4
+â9 = {0, 2, 1, 0, 1}
+A10 = X1:=pred(X5)
+â10 = {0, 2, 1, 0, 0}
+
+
+# Ejercicio 5
+𝑓(𝑥, 𝑦, 𝑧) = {
+      𝑥 si 𝑥 > 𝑧
+      𝑦 si 𝑧 > 𝑥
+      0 si 𝑥 = 𝑧
+}
+
+# test 1:
+#   Z > X == X < Z
+#   Et1 = Z ∸ X
+
+# test 2:
+#   X = Z === (X <= Z) && (X >= Z)
+#   X = Z === ~(X > Z) && ~(X < Z)
+#   Et2 = (1 ∸ (X ∸ Z)) * (1 - (Z ∸ X))
+
+begin
+  X4 := X3 ∸ X1;
+  X7 := succ(X7);
+  X5 := X1 ∸ X3;
+  X5 := X7 ∸ X5;
+  X6 := X7 ∸ X4;
+  X5 := X5 * X6;
+  X3 := 0;
+  while X4 ≠ X3 do
+  begin
+    X1 := X2;
+    X4 := 0;
+  end
+  while X5 ≠ X3 do
+  begin
+    X1 := 0;
+    X5 := 0;
+  end
+end
+
+# Ejercicio 8
+# Composición de programas while
+
+begin
+  XK+1 := X2;
+  X2 := 0;
+  P2;
+  XK+2 := X1;
+  X2 := 0, X3 := 0, ...;
+  X1 := XK+1;
+  P2;
+  X1 := X1 * XK+2;
+  P1;
+end
+
+# Ejercicio 6
+# b)
+
+begin
+  X7 := X1;
+  X8 := X2;
+  while X6 != X7 do
+  begin
+    X1 := X8;
+    X6 := succ(X6);
+    X2 := X6;
+    X3 := 0, X4 := 0, X5 := 0;
+    Pmod;
+    X9 := X9 + X1;
+  end
+  X1 := X9;
+end
+
+# c)
+
+begin
+  X6 := X2;
+  Pmod;
+  X3 := 0, ...
+  X2 := X1;
+  X1 := X6;
+  Pdiv;
+end

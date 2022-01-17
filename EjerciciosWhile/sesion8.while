@@ -1,0 +1,172 @@
+# Ejercicio 1:
+
+begin
+  X2 := 0;
+  X2 := succ(X2);
+  X2 := succ(X2);
+  X5 := 0;
+  while X3 != X5 do
+  begin
+    X6 := 0
+    while X6 != X4 do
+    begin
+      X6 := succ(X6);
+      X2 := succ(X2);
+    end
+    X3 := pred(X3);
+  end
+  X1 := succ(X2);
+  X1 := pred(X1);
+end
+
+# Ejercicio 2: a)
+begin
+  X3 := succ(X1);
+  X5 := X1 ∸ X2
+  X6 := X2 ∸ X1;
+  X5 := X5 + X6;
+  X6 := X3 ∸ X4;
+  X5 := X5 * X6;
+  X7 := 0;
+  while (X5 != X7) do
+  begin
+    X1 := succ(X1);
+    X3 := pred(X3);
+    X3 := succ(X1);
+    X5 := X1 ∸ X2
+    X6 := X2 ∸ X1;
+    X5 := X5 + X6;
+    X6 := X3 ∸ X4;
+    X5 := X5 * X6;
+  end
+
+# Ejercicio 2. b)
+begin
+  X1 := succ(X1);
+  X5 := X1 ∸ X2;
+  X6 := 0;
+  X6 := succ(X6);
+  X5 := X6 ∸ X5;
+  X6 := X1 ∸ X3;
+  X5 := X5 + X6;
+  X6 := 0;
+  while X5 != X6 do
+  begin
+    X1 := pred(X1);
+    X2 := pred(X2);
+    # recomprobar condicional
+  end
+end
+
+# Ejercicio 4
+# a)
+
+// X Y D R
+// 7 2 0 0
+// 5 2 1 0
+// 3 2 2 0
+// 1 2 2 0
+// 0 2 3 1
+
+// while X > Y: X - Y
+// return X;
+
+begin
+  while X1 >= X2 do
+  begin
+    X1 := X1 ∸ X2;
+  end
+end
+
+begin
+  X4 := succ(X1);
+  X4 := pred(X1);
+  while X3 != X2 do
+  begin
+    X4 := pred(X4);
+    X3 := succ(X3);
+  end
+  X3 := 0;
+  while X4 != X3; do
+  begin
+    X4 := succ(X1);
+    X4 := pred(X1);
+    while X3 != X2:
+    begin
+      X3 := succ(X3);
+      X1 := pred(X1);
+      X4 := pred(X4);
+      X4 := pred(X4);
+    end
+    X3 := 0;
+  end
+end
+
+# alternativo
+
+begin
+  X1 := succ(X1);
+  while X1 != X3 do
+  begin
+    X4 := succ(X1);
+    X4 := pred(X1);
+    X5 := 0;
+    while X5 != X2 do
+    begin
+      X5 := succ(X5);
+      X1 := pred(X1);
+    end
+  end
+  X1 := succ(X4);
+  X1 := pred(X4);
+  X1 := pred(X1);
+end
+
+# b)
+
+begin
+  X2 := 0;
+  X3 := 2;
+  while X1 != X2 do
+  begin
+    while X2 != X3 do
+    begin
+      X3 := X3 + X3;
+      X2 := succ(X2);
+    end
+    X3 := X3 * X3;
+    X1 := succ(X1);
+    X2 := 0;
+  end
+  X1 := succ(X3);
+  X1 := pred(X3);
+end
+
+# c)
+begin
+  X3 := 1;
+  while X1 != X2 do
+  begin
+    X2 := succ(X2);
+    X3 := X3 * X2;
+  end
+  X1 := X3;
+end
+
+# g)
+begin
+  X7 := succ(X7);
+  while X3 != X1 do
+  begin
+    X3 := succ(X3);
+    X4 := X2;             // X4 = Y;
+    X6 := X3 ∸ X4;        // X3 > X4
+    X6 := X7 - X6;        // 1 - (X3 > X4) = X3 <= X4 = i <= Y
+    while X6 != X8 do     // while Y >= i
+    begin
+      X4 := X4 ∸ X3;      // Y = Y - i;
+    end
+    X5 := X5 + X4;        // res += Y mod i;
+  end
+  X1 := X5;
+end
